@@ -14,23 +14,22 @@ import UIKit
  AddToastViewHelper().animateToastView(view:PARENT_VIEW, withMesg:MESSAGE)
  */
 class AddToastViewHelper:NSObject{
-    
-    // Public variable to customize the notification bar/Toast View.
-    public var toastBGColor = UIColor.white // By default BG color will show white.
-    public var toastTextMsgColor = UIColor.blue // By default BG color will show Blue.
-    public var duration = 2.0 // Time duration to show the pop up.By default it is 2.0 seconds
-    //You could write your own properties to customize the toast/Banner View.If you face any problem then can contact at devendra.bhumca12@gmail.com
+
+    //Note:- You could write your own properties to customize the toast/Banner View.If you face any problem then can contact at devendra.bhumca12@gmail.com. We will customize for you :)
     
     private lazy var popUpView = TopToastView()
     private let height = 46*CGFloat(UIScreen.main.bounds.height/568) // 44 * scale factor
     private var yPosition: NSLayoutConstraint?
     private var superView:UIView?
     
-    func animateToastView(view:UIView,withMesg mesg:String){
+    // By default BG color will show white.
+    // Time duration to show the pop up.By default it is 5.0 seconds
+    //By default banner will dismiss after 5 seconds. but if you want programatically dismiss then set this bool to false. To show a banner infinitely until it is manually dismissed, simply:
+    func animateToastView(view:UIView,withMesg mesg:String, withDuration duration:Double = 5.0, withBGColor BGColor:UIColor = UIColor.white, withTextMsgColor textMsgColor:UIColor = UIColor.blue,autoDismiss:Bool = true){
         self.superView = view
         popUpView = TopToastView.instanceFromNib() as! TopToastView
-        popUpView.backgroundColor = toastBGColor
-        popUpView.msgLbl.textColor = toastTextMsgColor
+        popUpView.mainView.backgroundColor = BGColor
+        popUpView.msgLbl.textColor = textMsgColor
         popUpView.translatesAutoresizingMaskIntoConstraints = false
         popUpView.customizeView(withMesg:mesg)
         superView?.addSubview(popUpView)
@@ -42,19 +41,26 @@ class AddToastViewHelper:NSObject{
         
         superView?.layoutIfNeeded()
         
-        showPopUpView()
+        showPopUpView(shouldAutoDismiss: autoDismiss, afterDuration: duration)
     }
     
-    private func showPopUpView(){
+    private func showPopUpView(shouldAutoDismiss autoDismiss:Bool, afterDuration duration: Double){
         UIView.animate(withDuration: 0.5, animations: {
             self.yPosition?.constant = 30 //top point when it appears on screen
             self.superView?.layoutIfNeeded()
         }) { (success) in
             //Time duration till the banner view show.
-            self.delay(self.duration, closure: {
-                self.hidePopUpView()
-            })
+            if autoDismiss{
+                self.delay(duration, closure: {
+                    self.hidePopUpView()
+                })
+            }
         }
+    }
+    
+    //Dismiss this toast programatically.
+    func dismissToast(){
+        self.hidePopUpView()
     }
     
     private func hidePopUpView(){
