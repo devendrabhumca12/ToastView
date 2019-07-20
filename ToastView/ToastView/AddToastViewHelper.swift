@@ -25,7 +25,7 @@ class AddToastViewHelper:NSObject{
     // By default BG color will show white.
     // Time duration to show the pop up.By default it is 5.0 seconds
     //By default banner will dismiss after 5 seconds. but if you want programatically dismiss then set this bool to false. To show a banner infinitely until it is manually dismissed, simply:
-    func animateToastView(view:UIView,withMesg mesg:String, withDuration duration:Double = 5.0, withBGColor BGColor:UIColor = UIColor.white, withTextMsgColor textMsgColor:UIColor = UIColor.blue,autoDismiss:Bool = true){
+    func animateToastView(view:UIView,withMesg mesg:String, withDuration duration:Double = 5.0, withBGColor BGColor:UIColor = UIColor.white, withTextMsgColor textMsgColor:UIColor = UIColor.black,autoDismiss:Bool = true){
         self.superView = view
         popUpView = TopToastView.instanceFromNib() as! TopToastView
         popUpView.mainView.backgroundColor = BGColor

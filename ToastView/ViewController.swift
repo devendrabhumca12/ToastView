@@ -15,7 +15,7 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view.
         
        // Will dismiss after 5 seconds.
-        //AddToastViewHelper().animateToastView(view: self.view, withMesg: "This is a simple test Message.")
+        AddToastViewHelper().animateToastView(view: self.view, withMesg: "This is a simple test Message.")
         
         //show banner for 3 seconds.
         //AddToastViewHelper().animateToastView(view: self.view, withMesg: "This is a simple test Message.", withDuration: 3.0)
