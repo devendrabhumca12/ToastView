@@ -25,15 +25,25 @@ Just drag and drop the ToastView folder into your project folder that's it.
 
 Creating NotificationBanner/Top banner is used to easy. To create a regular banner and show it, simply:
 
-    let banner = AddToastViewHelper().animateToastView(view: self.view, withMesg: title)
+    AddToastViewHelper().animateToastView(view: self.view, withMesg: title)
 
-By default, each banner will automatically dismiss after 5 seconds. To dismiss programatically, simply:
-
-    banner.dismissToast()
-
-To show a banner infinitely until it is manually dismissed, simply:
-
-    banner.autoDismiss = false
+        // Will dismiss after 5 seconds.
+        //AddToastViewHelper().animateToastView(view: self.view, withMesg: "This is a simple test Message.")
+        
+        //show banner for 3 seconds.
+        //AddToastViewHelper().animateToastView(view: self.view, withMesg: "This is a simple test Message.", withDuration: 3.0)
+        
+        //Show banner view with customize BG  color
+        //AddToastViewHelper().animateToastView(view: self.view, withMesg: "This is a simple test Message.", withDuration: 3.0, withBGColor: UIColor.green)
+        
+        //Show banner view with custom message color
+        //AddToastViewHelper().animateToastView(view: self.view, withMesg: "This is a simple test Message.", withDuration: 3.0, withBGColor: UIColor.green, withTextMsgColor: UIColor.white)
+        
+        //this will not dismiss automatically. Infinite showing banner message.
+        //AddToastViewHelper().animateToastView(view: self.view, withMesg: "This is a simple test Message.", withDuration: 3.0, withBGColor: UIColor.green, withTextMsgColor: UIColor.white, autoDismiss: false)
+        
+        //Dismiss loader manually.
+        //AddToastViewHelper().dismissToast()
 
 Each side view will be automically reisized to fit perfectly
 
