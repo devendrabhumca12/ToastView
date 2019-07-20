@@ -12,6 +12,7 @@ The easiest way to display highly customizable in app notification banners in iO
     Support for long titles/ subtitles ✅
     Presenting from top support ✅
     
+    
 # Requirements
 iOS 9.0+
 Xcode 10.0+
