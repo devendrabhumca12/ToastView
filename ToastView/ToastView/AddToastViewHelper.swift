@@ -2,8 +2,8 @@
 //  File.swift
 //  ToastView
 //
-//  Created by VVDN on 7/21/19.
-//  Copyright © 2019 VVDN. All rights reserved.
+//  Created by Devendra Agnihotri on 7/21/19.
+//  Copyright © 2019 Devendra Agnihotri. All rights reserved.
 //
 
 import Foundation
